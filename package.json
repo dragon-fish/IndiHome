@@ -1,17 +1,26 @@
 {
   "name": "IndiHome",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "index.html",
   "repository": "https://github.com/Dragon-Fish/IndiHome.git",
   "author": "Dragon-Fish <824399619@qq.com>",
   "license": "GPL-3.0",
+  "scripts": {
+    "build": "yarn clear && webpack",
+    "dev": "yarn clear && webpack --watch",
+    "clear": "rm -rf ./dist ./**/dist ./dev",
+    "lint": "eslint ./index.js",
+    "prettier": "prettier --write ./index.js"
+  },
   "devDependencies": {
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
+    "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "stylus": "^0.54.8",
     "stylus-loader": "^4.3.3",
+    "url-loader": "^4.1.1",
     "webpack": "^5.16.0",
     "webpack-cli": "^4.4.0"
   }

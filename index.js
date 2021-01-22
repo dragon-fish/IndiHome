@@ -1,4 +1,18 @@
+// Import html
+import html from './public/template.html'
+
+// Import styles
+import './static/style.styl'
+
+// Music
+// import music from './public/asset/bgm.mp3'
+
+// Main
 !((window, $) => {
+  $('body')
+    .html('')
+    .append(html)
+
   // Start button
   $('#startBtn').click(init)
 
@@ -24,7 +38,7 @@
     }, 50)
 
     // Set Character
-    $charaArea = $('#charaArea')
+    let $charaArea = $('#charaArea')
     $charaArea.find('#chara1').show()
   }
 })(window, jQuery)

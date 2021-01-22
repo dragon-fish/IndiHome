@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 module.exports = {
   entry: {
     // index: './index.js',
-    index: './index.html',
+    index: './index.js',
   },
   target: ['web', 'es5'],
   context: path.resolve(__dirname),
@@ -15,8 +15,8 @@ module.exports = {
   },
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    // filename: isMinify ? '[name].min.js' : '[name].js',
+    path: path.resolve(__dirname, 'public', 'dist'),
+    filename: '[name].js',
     // publicPath: 'pathOrUrlWhenProductionBuild'
   },
   module: {
@@ -32,6 +32,12 @@ module.exports = {
         test: /\.html$/i,
         use: {
           loader: 'html-loader',
+        },
+      },
+      {
+        test: /\.mp3$/,
+        use: {
+          loader: 'url-loader',
         },
       },
       {
