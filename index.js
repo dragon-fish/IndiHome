@@ -27,14 +27,13 @@ import './static/style.styl'
     bgm.play()
 
     // Set Timer
-    window.showTime = 0
-    setInterval(function() {
-      window.showTime += 10
-    }, 10)
+    const startTime = new Date().getTime()
     const $timer = $('<div>', { title: 'Debug Timer', id: 'debugTimer' })
     $timer.appendTo('footer')
     setInterval(() => {
-      $timer.text(`${(window.showTime / 1000).toFixed(2)} s`)
+      let now = new Date().getTime()
+      let timePassed = now - startTime
+      $timer.text(`${(timePassed / 1000).toFixed(2)} s`)
     }, 50)
 
     // Set Character
