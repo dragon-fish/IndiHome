@@ -1,0 +1,182 @@
+titleBlack = #222522
+titleRed = #b00c24
+
+html, body
+  margin: 0 auto
+  padding: 0
+  width: 100vw
+  height: 100vh
+  font-size: 14px
+  font-family: '微软雅黑', Arial, 'Helvetica Neue', Helvetica, sans-serif
+  background: #fff
+
+#beforeArea
+  position: relative
+  width: 100%
+  height: 100%
+  text-align: center
+
+  #startBtn
+    position: absolute
+    top: 50%
+    left: 50%
+
+#showArea
+  display: none
+  margin: 0 auto
+  width: 800px
+  height: 600px
+  // background-image: url('/static/image/background.png')
+  // background-repeat: no-repeat
+  // background-position: bottom left
+  // background-size: 100% 450px
+
+header
+  display: flex
+  text-align: center
+
+  > div
+    flex: 1
+
+  #leftLogo, #rightLogo
+    img
+      width: 180px
+      height: auto
+
+  #centerLogo
+    margin-top: 1rem
+    font-weight: bold
+
+    .first
+      color: titleBlack
+      font-size: 2rem
+
+    .second
+      color: titleRed
+      font-size: 2rem
+
+    .third
+      > span
+        font-weight: normal
+
+main
+  position: relative
+
+  #bgArea
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    bottom: 0
+
+    img
+      width: 100%
+      height: auto
+
+  #goodsArea
+    color: titleBlack
+    transform: scale(0.75)
+
+    ul
+      list-style: none
+      padding-left: 0
+      width: 400px
+      position: relative
+      animation: swing 2.4s infinite
+
+      li
+        display: flex
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25)
+        padding: 4px 8px
+
+        .left
+          flex: 2
+          font-weight: bold
+
+          .title
+            color: titleRed
+            font-size: 1.8rem
+
+          .speed
+            color: titleBlack
+            font-size: 1.8rem
+
+        .right
+          flex: 1
+
+          .cost
+            color: titleRed
+            font-size: 2rem
+
+  #extraNote
+    margin-top: 1rem
+
+  #charaArea
+    > div
+      position: absolute
+      display: none
+      width: 280px
+      height: 560px
+      bottom: -135px
+
+    #chara1
+      right: 0
+
+    img
+      width: 100%
+      height: 100%
+      // position: absolute
+
+footer
+  #debugTimer
+    position: absolute
+    right: 4px
+    bottom: 4px
+    text-align: right
+    font-size: small
+    color: gray
+
+@keyframes swing
+  0%
+    top: 0
+    left: 0
+
+  10%
+    top: -24px
+    left: -12px
+
+  20%
+    top: -14px
+    left: -22px
+
+  30%
+    top: -2px
+    left: 4px
+
+  40%
+    top: 7px
+    left: -5px
+
+  50%
+    top: -13px
+    left: 8px
+
+  60%
+    top: -24px
+    left: -10px
+
+  70%
+    top: -5px
+    left: 4px
+
+  80%
+    top: 8px
+    left: 18px
+
+  90%
+    top: -14px
+    left: -2px
+
+  100%
+    top: 0
+    left: 0
