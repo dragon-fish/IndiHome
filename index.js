@@ -1,5 +1,5 @@
 // Import html
-import html from './public/template.html'
+import html from './index.html'
 
 // Import styles
 import './static/style.styl'
@@ -9,12 +9,15 @@ import './static/style.styl'
 
 // Main
 !((window, $) => {
-  $('body')
-    .html('')
-    .append(html)
+  // Set HTML
+  $('#app').html('').append(html)
 
   // Start button
-  $('#startBtn').click(init)
+  const bgm = new Audio('asset/bgm.mp3')
+  bgm.addEventListener('canplay', () => {
+    console.log('canplay')
+    $('#startBtn').removeAttr('disabled').text('PLAY').click(init)
+  })
 
   function init() {
     // Switch elements
@@ -22,13 +25,12 @@ import './static/style.styl'
     $('#beforeArea').hide()
 
     // init bgm
-    const bgm = new Audio('asset/bgm.mp3')
     bgm.load()
     bgm.play()
 
     // Set Timer
     window.showTime = 0
-    setInterval(function() {
+    setInterval(function () {
       window.showTime += 10
     }, 10)
     const $timer = $('<div>', { title: 'Debug Timer', id: 'debugTimer' })
