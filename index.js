@@ -13,8 +13,13 @@ import './static/style.styl'
   $('#app').html('').append(html)
 
   // Init BGM
-  const bgm = new Audio('asset/bgm.mp3')
+  const bgm = new Audio(
+    'https://cdn.jsdelivr.net/gh/Dragon-Fish/IndiHome@main/asset/bgm.mp3'
+  )
   bgm.load()
+  bgm.addEventListener('error', () => {
+    $('#startBtn').text('ERROR!')
+  })
   bgm.addEventListener('canplay', () => {
     console.log('canplay')
     $('#startBtn').removeAttr('disabled').text('PLAY').click(init)
