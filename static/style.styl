@@ -24,6 +24,23 @@ html, body
     position: absolute
     top: 50%
     left: 50%
+    border-radius: 50%
+    background: #efefef
+    width: 80px
+    height: 80px
+    color: #555
+    padding: 0
+    margin: 0
+    font-size: 20px
+    border: none
+    box-shadow: 0 0 8px #ddd
+    transform: scale(1) translateX(-50%) translateY(-50%)
+    transition: all 0.2s
+
+    &:hover
+      color: #222
+      box-shadow: 0 0 16px #ccc
+      transform: scale(1.1) translateX(-50%) translateY(-50%)
 
 #showArea
   display: none
