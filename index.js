@@ -18,7 +18,7 @@ import './static/style.styl'
     $('#startBtn').text('ERROR!')
   })
   bgm.addEventListener('canplay', () => {
-    console.log('canplay')
+    console.log('Music ready!')
     $('#startBtn').removeAttr('disabled').text('PLAY').click(init)
   })
 
@@ -38,7 +38,6 @@ import './static/style.styl'
         'transform',
         `translateX(-50%) translateY(-50%) scale(${finalScale})`
       )
-      console.log('resize App')
     }
     resizeApp()
     $(window).on('resize', resizeApp)
