@@ -12,8 +12,9 @@ import './static/style.styl'
   // Set HTML
   $('#app').html('').append(html)
 
-  // Start button
+  // Init BGM
   const bgm = new Audio('asset/bgm.mp3')
+  bgm.load()
   bgm.addEventListener('canplay', () => {
     console.log('canplay')
     $('#startBtn').removeAttr('disabled').text('PLAY').click(init)
@@ -24,8 +25,7 @@ import './static/style.styl'
     $('#showArea').show()
     $('#beforeArea').hide()
 
-    // init bgm
-    bgm.load()
+    // Start BGM
     bgm.play()
 
     // Set Timer
