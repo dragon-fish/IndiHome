@@ -39,7 +39,33 @@ import './static/style.styl'
     }, 50)
 
     // Set Character
-    let $charaArea = $('#charaArea')
-    $charaArea.find('#chara1').show()
+    // let $charaArea = $('#charaArea')
+    setTimeout(() => {
+      setInterval(() => {
+        let $app = $('#app')
+        let now = new Date().getTime()
+        let timePassed = now - startTime
+        let moreTime = ((timePassed / 1000) % 30).toFixed(2)
+        if (moreTime < 15) {
+          $app
+            .removeClass('show')
+            .removeClass('chara2')
+            .addClass('before')
+            .addClass('chara1')
+          if (moreTime > 0.6) {
+            $app.addClass('show').removeClass('before')
+          }
+        } else {
+          $app
+            .removeClass('show')
+            .removeClass('chara1')
+            .addClass('before')
+            .addClass('chara2')
+          if (moreTime - 15 > 0.6) {
+            $app.addClass('show').removeClass('before')
+          }
+        }
+      }, 100)
+    }, 60 * 1000)
   }
 })(window, jQuery)

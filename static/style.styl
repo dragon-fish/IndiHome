@@ -8,7 +8,7 @@ html, body
   height: 100vh
   font-size: 14px
   font-family: '微软雅黑', Arial, 'Helvetica Neue', Helvetica, sans-serif
-  background: #fff
+  background: transparent
 
 #app
   width: 100%
@@ -27,13 +27,24 @@ html, body
 
 #showArea
   display: none
+  position: relative
   margin: 0 auto
   width: 800px
   height: 600px
-  // background-image: url('/static/image/background.png')
-  // background-repeat: no-repeat
-  // background-position: bottom left
-  // background-size: 100% 450px
+  // background-image: url('../public/asset/image/background.png')
+  background-repeat: no-repeat
+  background-position: bottom left
+  background-size: 100% 400px
+
+  #bgArea
+    // position: relative
+    img
+      display: block
+      position: absolute
+      width: 100%
+      height: 400px
+      bottom: 0
+      z-index: -1
 
 header
   display: flex
@@ -46,6 +57,7 @@ header
     img
       width: 180px
       height: auto
+      pointer-events: none
 
   #centerLogo
     margin-top: 1rem
@@ -66,20 +78,13 @@ header
 main
   position: relative
 
-  #bgArea
-    position: absolute
-    width: 100%
-    height: 100%
-    left: 0
-    bottom: 0
-
-    img
-      width: 100%
-      height: auto
-
   #goodsArea
     color: titleBlack
     transform: scale(0.75)
+
+    #goodsInner
+      opacity: 0
+      transition: all 1.2s
 
     ul
       list-style: none
@@ -117,21 +122,95 @@ main
 
   #charaArea
     > div
+      opacity: 0
       position: absolute
-      display: none
-      width: 240px
-      height: 480px
-      bottom: -135px
+      top: 0
+      height: 460px
+      width: auto
+      transition: all 1.2s
 
     #chara1
       right: 0
 
+    #chara2
+      left: 0
+
     img
       width: 100%
       height: 100%
-      // position: absolute
+
+// Character Switcher
+.show
+  &.chara1
+    #chara1
+      opacity: 1
+      right: 40px !important
+
+    #goodsArea #goodsInner
+      opacity: 1
+      transform: translateX(0%)
+
+    #phoneNum
+      right: 4rem
+      opacity: 1
+
+  &.chara2
+    #chara2
+      opacity: 1
+      left: 40px !important
+
+    #goodsArea #goodsInner
+      opacity: 1
+      transform: translateX(100%)
+      margin-right: 50%
+
+    #bgArea
+      img
+        transform: rotateY(180deg)
+
+    #phoneNum
+      left: 4rem
+      opacity: 1
+
+.before
+  #phoneNum, #bgArea, #charaArea > div
+    opacity: 0
+
+  &.chara1
+    #phoneNum
+      right: 0
+      opacity: 0
+
+    #goodsArea #goodsInner
+      opacity: 0
+      transform: translateX(-10%)
+
+  &.chara2
+    #phoneNum
+      left: 0
+      opacity: 0
+
+    #goodsArea #goodsInner
+      opacity: 0
+      transform: translateX(110%)
+      margin-right: 50%
 
 footer
+  width: 100%
+
+  #phoneNum
+    position: absolute
+    display: inline-block
+    font-size: 1.2rem
+    font-weight: bold
+    padding: 0.5em 1em
+    background-color: #fdc700
+    border-radius: 1em
+    transition: all 0.6s
+    // transition-delay: 0.6s
+    opacity: 0
+    z-index: 10
+
   #debugTimer
     position: absolute
     right: 4px
