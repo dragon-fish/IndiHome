@@ -12,5 +12,5 @@
 
 **Each company owns their copyright**
 
-- IndiHomeLogo IndiHome
-- TelkomIndonesiaLogo TelkomIndonesia
+- `IndiHomeLogo.png` IndiHome
+- `TelkomIndonesiaLogo.jpg` TelkomIndonesia
