@@ -4,9 +4,6 @@ import html from './index.html'
 // Import styles
 import './static/style.styl'
 
-// Music
-// import music from './public/asset/bgm.mp3'
-
 // Main
 !((window, $) => {
   // Set HTML
@@ -29,6 +26,22 @@ import './static/style.styl'
     // Switch elements
     $('#showArea').show()
     $('#beforeArea').hide()
+
+    // Set scale
+    function resizeApp() {
+      const $app = $('#showArea')
+      const { clientWidth, clientHeight } = document.body
+      const widthRatio = clientWidth / ($app.outerWidth(true) + 20)
+      const heightRatio = clientHeight / ($app.outerHeight(true) + 20)
+      const finalScale = widthRatio > heightRatio ? heightRatio : widthRatio
+      $app.css(
+        'transform',
+        `translateX(-50%) translateY(-50%) scale(${finalScale})`
+      )
+      console.log('resize App')
+    }
+    resizeApp()
+    $(window).on('resize', resizeApp)
 
     // Start BGM
     bgm.play()

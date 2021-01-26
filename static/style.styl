@@ -43,17 +43,19 @@ html, body
       transform: scale(1.1) translateX(-50%) translateY(-50%)
 
 #aboutArea
-  position: absolute
+  position: fixed
   left: 50%
   bottom: 0
   transform: translateX(-50%)
   text-align: center
   font-size: small
   color: #666
+  background-color: rgba(255, 255, 255, 0.4)
+  padding: 0.2rem
 
   a
     text-decoration: none
-    color: #999
+    color: #343434
 
 #showArea
   display: none
@@ -64,7 +66,7 @@ html, body
   // margin: 0 auto
   width: 800px
   height: 600px
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.02)
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
 
   #bgArea
     // position: relative
@@ -241,12 +243,12 @@ footer
     z-index: 10
 
   #debugTimer
-    position: absolute
-    right: 4px
-    bottom: 4px
+    position: fixed
+    right: 0.5rem
+    bottom: 0.5rem
     text-align: right
     font-size: small
-    color: gray
+    color: rgba(0, 0, 0, 0.2)
 
 @keyframes swing
   0%
